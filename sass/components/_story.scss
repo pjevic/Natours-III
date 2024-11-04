@@ -1,0 +1,67 @@
+@import "../abstracts/variables";
+
+.story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: rgba($color-white, .6);
+    border-radius: 3px;
+    padding: 6rem;
+    padding-left: 9rem;
+    font-size: $default-font-size;
+
+    transform: skewX(-12deg);
+    & > * {
+        transform: skewX(12deg);
+    }
+
+    &__shape {
+        // to make text float around shape
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        // background-color: aqua;
+        shape-outside: circle(50% at 50% 50%);
+        // ...needs all above
+
+        clip-path: circle(50% at 50% 50%);
+        transform: translateX(-3rem) skewX(12deg);
+        position: relative;
+    }
+
+    &__img {
+        height: 100%;
+        transform: translateX(-4rem) scale(1.4);
+        transition: all .5s;
+    }
+
+    &:hover &__img {
+        transform: translateX(-4rem) scale(1);
+        filter: blur(3px) brightness(80%);
+    }
+
+    &__caption {
+        color: $color-white;
+        font-size: 1.7rem;
+        text-transform: uppercase;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        transition: all .5s;
+        opacity: 0;
+        backface-visibility: hidden; // if it shakes - this fix
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+
+
+    &__text {
+
+    }
+}
