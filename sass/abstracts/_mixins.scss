@@ -31,6 +31,12 @@
 - desktop            1.200px - 1800px         75.00em - 112.50em
 - big-desktop       +1.800px                +112.50em
 
+ORDER: 
+
+        1. base + typography
+        2. general layout + grid
+        3. page layout
+        4. components
 */
 
 @mixin respond($breakpoint) {
