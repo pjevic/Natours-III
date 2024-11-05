@@ -12,3 +12,41 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+// ---------------------- MEDIA QUERY MANAGER ----------------------
+
+/*
+
+   0px - 600px:         Phone
+ 600px - 900px:         Tablet portrait
+ 900px - 1200px:        Tablet Landscape
+1200px - 1800px:        Desktop - is where our normal styles apply
+        +1800px:        Big Desktop
+-------------------------------------------------------------------
+// Breakpoint arguments choiches:                 1em = 16px
+-------------------------------------------------------------------
+- phone                  0px - 600px           0.00em -  37.50em
+- tab-port             600px - 900px          37.50em -  56.25em
+- tab-land             900px - 1200px         56.25em -  75.00em
+- desktop            1.200px - 1800px         75.00em - 112.50em
+- big-desktop       +1.800px                +112.50em
+
+*/
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) {@content};
+    }
+
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) {@content};
+    }
+
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) {@content};
+    }
+
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) {@content};
+    }
+}
