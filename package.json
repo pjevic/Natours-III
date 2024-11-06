@@ -8,7 +8,7 @@
     "compile:sass": "sass sass/main.scss css/style.compiled.css",
     "concat:css": "concat -o css/style.concat.css css/icon-fonts.css css/style.compiled.css",
     "prefix:css": "postcss --use autoprefixer -b 'last 5 versions' css/style.concat.css -o css/style.prefix.css",
-    "minify:css": "npx clean-css-cli css/style.prefix.css -o css/style.min.css",
+    "minify:css": "npx clean-css-cli css/style.prefix.css -o css/style.css",
     "build:css": "npm-run-all compile:sass concat:css prefix:css minify:css"
   },
   "author": "Milan Pjevic",
