@@ -4,11 +4,21 @@
   "description": "landing page",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "sass sass/main.scss css/style.css -w"
+    "whatch:sass": "sass sass/main.scss css/style.css -w",
+    "compile:sass": "sass sass/main.scss css/style.compiled.css",
+    "concat:css": "concat -o css/style.concat.css css/icon-fonts.css css/style.compiled.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 5 versions' css/style.concat.css -o css/style.prefix.css",
+    "minify:css": "npx clean-css-cli css/style.prefix.css -o css/style.min.css",
+    "build:css": "npm-run-all compile:sass concat:css prefix:css minify:css"
   },
   "author": "Milan Pjevic",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "clean-css-cli": "^5.6.3",
+    "concat": "^1.0.3",
+    "cssnano": "^7.0.6",
+    "postcss-cli": "^11.0.0",
     "sass": "^1.80.4"
   }
 }
