@@ -73,8 +73,8 @@
         105deg,
         rgba($color-white, .9) 0%,
         rgba($color-white, .9) 50%,
-        transparent 50% 
-    ) ,url(../img/nat-10.jpg);
+        transparent 50%),
+        url(../img/nat-10.jpg);
 
     @include respond(tab-land) {
         background-image: linear-gradient(
